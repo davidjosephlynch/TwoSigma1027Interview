@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 27 22:27:48 2020
-
-@author: DavidLynch
-"""
-
 class Solution:
     def longestStrChain(self, words):
         #below is the array where we will store each words' maximum chain length
