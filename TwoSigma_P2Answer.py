@@ -9,18 +9,18 @@ class Solution:
         
         #iterating through the words given:
         for currentword in words:
-            #setting the current spot equal to 1, since we know this is the minimum total number of chains
+            #setting the current spot equal to 1, since we know this is the minimum total number of chains (given)
             maxlengths[currentword] = 1
-            #looping through the length of the current word
+            #looping through the length of the current word (ie each possible combination/length)
             for i in range(len(currentword)):
                 #subsetting this specific word to a different combination
                 subsetted_word = currentword[:i] + currentword[i + 1:]
-                #is the above made word in the subset of words?
+                #is the above 'subsetted word' in the dictionary of words?
                 if subsetted_word in words:
-                    #if yes, find the maximum between the subsetted word's position (the length) + 1 or what we currently have as the maximum in that spot
+                    #if yes, find the maximum between the subsetted word's position (the length) + 1 or what we currently have as the maximum chain length for the current word
                     maxlengths[currentword] = max(maxlengths[subsetted_word] + 1, maxlengths[currentword])
                     
-                    #set finalmax to either the maximum length at that current word or the already existing finalmix
+                    #set finalmax to either the maximum length at that current word or the already existing finalmax
                     finalmax = max(finalmax, maxlengths[currentword])
 
         return finalmax
